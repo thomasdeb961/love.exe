@@ -63,11 +63,22 @@ button:hover {
     padding: 2rem;
     min-height: 100vh;
   }
+     .responsive-terminal {
+  white-space: pre-wrap; /* permet les retours à la ligne */
+  word-break: break-word;
+  font-family: monospace;
+  background: black;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  max-width: 100%;
+  overflow-x: auto;
+}
 </style>
 </head>
 <body>
   <div class="terminal max-w-xl mx-auto">
-    <pre>
+    <pre class="responsive-terminal">
 &gt; Fragment 5 – loveKey.v1
 Date de lancement de la version stable Alice&amp;Gonzague : INCONNUE
 Fragment partiel : 19/06/____
