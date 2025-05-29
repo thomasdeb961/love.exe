@@ -1,0 +1,105 @@
+<!-- fragment2.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fragment 2 - EmotionData</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+  background-color: #000;
+  color: #ff3355; /* Rouge vif cyberpunk */
+  font-family: 'VT323', monospace;
+}
+
+.terminal {
+  padding: 2rem;
+  min-height: 100vh;
+  border: 2px solid #ff3355; /* Encadré rouge */
+  box-shadow: 0 0 10px #ff3355, 0 0 20px #ff0044; /* Glow rouge */
+  max-width: 800px;
+  margin: auto;
+  border-radius: 8px;
+}
+
+pre, #output {
+  text-shadow:
+    0 0 5px #ff3355,
+    0 0 10px #ff0044;
+}
+
+input[type="text"], button {
+  background-color: #000;
+  border: 2px solid #ff3355;
+  color: #ff3355;
+  box-shadow: 0 0 8px #ff3355 inset;
+  font-family: 'VT323', monospace;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 4px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background-color: #220000;
+  box-shadow: 0 0 12px #ff6699;
+  color: #ff6699;
+}
+
+button:hover {
+  background-color: #ff0044;
+  color: #fff;
+  box-shadow: 0 0 12px #ff0044;
+  cursor: pointer;
+}
+
+#errorMsg {
+  text-shadow: none;
+  color: #ff2222;
+  font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="text-l whitespace-pre-wrap">
+> FRAGMENT ENCRYPTÉ : Emotion_Code.b64
+Fichier verrouillé.
+Tentative de lecture :
+01010100 01110101 00100000 01100101 01110011 00100000 01101101 01101111 01101110  
+00100000 01101101 01101111 01110100 00100000 01100100 01100101 00100000 01110000  
+01100001 01110011 01110011 01100101 00101100 00100000 01101010 01100101 00100000  
+01110100 00100111 01100001 01101001 01101101 01100101 00101110
+
+⚠ Attention : seuls les cœurs synchronisés savent lire ce langage.
+> Mission : décrypte ce message codé en ASCII (chaque 8 bits = 1 caractère).  
+Indice : l’amour, comme les systèmes, a besoin d’une sécurité. 
+
+> Ta réponse :
+<input type="text" id="reponse" placeholder="Entre ta traduction..." id="answer" class="w-full p-2 bg-black border border-green-500 text-green-300" autofocus />
+      
+      <button onclick="verifier()" class="mt-4 text-white px-5 pt-2 hover:bg-red-400">✅ Valider
+      </button>
+      <div id="feedback" class="mt-4"></div>
+    </div>
+  </div>
+
+  <script>
+    function verifier() {
+      const reponse = document.getElementById("reponse").value.trim().toLowerCase();
+      const feedback = document.getElementById("feedback");
+
+      if (reponse.includes("tu es mon mot de passe") && reponse.includes("je t’aime")) {
+        feedback.innerHTML = "> Fragment validé ✅\n> Passage au fragment suivant...";
+        setTimeout(() => {
+          window.location.href = "fragment3.html";
+        }, 2000);
+      } else {
+        feedback.innerHTML = "> Réponse incorrecte. Essaie encore 💾";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Love.exe - Fragment 5</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+<style>
+  body {
+  background-color: #000;
+  color: #ff3355; /* Rouge vif cyberpunk */
+  font-family: 'VT323', monospace;
+}
+
+.terminal {
+  padding: 2rem;
+  min-height: 100vh;
+  border: 2px solid #ff3355; /* Encadré rouge */
+  box-shadow: 0 0 10px #ff3355, 0 0 20px #ff0044; /* Glow rouge */
+  max-width: 800px;
+  margin: auto;
+  border-radius: 8px;
+}
+
+pre, #output {
+  text-shadow:
+    0 0 5px #ff3355,
+    0 0 10px #ff0044;
+}
+
+input[type="text"], button {
+  background-color: #000;
+  border: 2px solid #ff3355;
+  color: #ff3355;
+  box-shadow: 0 0 8px #ff3355 inset;
+  font-family: 'VT323', monospace;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 4px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background-color: #220000;
+  box-shadow: 0 0 12px #ff6699;
+  color: #ff6699;
+}
+
+button:hover {
+  background-color: #ff0044;
+  color: #fff;
+  box-shadow: 0 0 12px #ff0044;
+  cursor: pointer;
+}
+
+#errorMsg {
+  text-shadow: none;
+  color: #ff2222;
+  font-weight: bold;
+}
+
+  .terminal {
+    padding: 2rem;
+    min-height: 100vh;
+  }
+</style>
+</head>
+<body>
+  <div class="terminal max-w-xl mx-auto">
+    <pre>
+&gt; Fragment 5 – loveKey.v1
+Date de lancement de la version stable Alice&amp;Gonzague : INCONNUE
+Fragment partiel : 19/06/____
+Indice : l’année où le monde est devenu un peu plus doux.
+Mission : trouve la cache contenant la clé finale. Ce lieu contient souvent <br> des souvenirs, objets sentimentaux ou surprises.
+Indice IRL : C’est là où tu cacherais un cadeau.
+</pre>
+
+    <div class="mt-6">
+      <label for="answer" class="block mb-2">Entrez l'année de lancement :</label>
+      <input type="text" id="answer" class="w-full p-2 bg-black border border-green-500 text-green-300" autofocus />
+      <button id="validate" class="mt-4 px-4 py-2  text-white rounded hover:bg-red-400">Valider</button>
+    </div>
+
+    <p id="errorMsg" class="mt-4 text-red-600 hidden">Réponse incorrecte. Essaie encore, agent.</p>
+  </div>
+
+  <script>
+    const answerInput = document.getElementById('answer');
+    const validateBtn = document.getElementById('validate');
+    const errorMsg = document.getElementById('errorMsg');
+
+    validateBtn.addEventListener('click', () => {
+      const val = answerInput.value.trim();
+      if(val === '2022') {
+        window.location.href = 'restored.html';
+      } else {
+        errorMsg.classList.remove('hidden');
+      }
+    });
+
+    // Option: valider avec Entrée
+    answerInput.addEventListener('keypress', (e) => {
+      if(e.key === 'Enter') validateBtn.click();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!-- fragment4.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fragment 4 - Rocket Heart</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+  background-color: #000;
+  color: #ff3355; /* Rouge vif cyberpunk */
+  font-family: 'VT323', monospace;
+}
+
+.terminal {
+  padding: 2rem;
+  min-height: 100vh;
+  border: 2px solid #ff3355; /* Encadré rouge */
+  box-shadow: 0 0 10px #ff3355, 0 0 20px #ff0044; /* Glow rouge */
+  max-width: 800px;
+  margin: auto;
+  border-radius: 8px;
+}
+
+pre, #output {
+  text-shadow:
+    0 0 5px #ff3355,
+    0 0 10px #ff0044;
+}
+
+input[type="text"], button {
+  background-color: #000;
+  border: 2px solid #ff3355;
+  color: #ff3355;
+  box-shadow: 0 0 8px #ff3355 inset;
+  font-family: 'VT323', monospace;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 4px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background-color: #220000;
+  box-shadow: 0 0 12px #ff6699;
+  color: #ff6699;
+}
+
+button:hover {
+  background-color: #ff0044;
+  color: #fff;
+  box-shadow: 0 0 12px #ff0044;
+  cursor: pointer;
+}
+
+#errorMsg {
+  text-shadow: none;
+  color: #ff2222;
+  font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="text-lg whitespace-pre-wrap">
+> Fragment 4 – RocketHeart_Match.sim
+Mini-jeu IRL requis :
+⚠ Les émotions doivent être stabilisées par une performance physique.
+
+Mission : Marque un but IRL avec la LoveBall
+Règle : 1 but = 1 point de stabilisation
+Indice : fouille les zones de jeu communes (salon, chambre). Un objet rond t’attend.
+
+⚽ Score minimum : 1 but en moins de 3 tirs.
+
+> Lorsque tu as terminé la mission IRL, clique ici :
+      <button onclick="suivant()">✅ J'ai marqué un but !</button>
+      <div id="feedback" class="mt-4"></div>
+    </div>
+  </div>
+
+  <script>
+    function suivant() {
+      document.getElementById("feedback").innerText = "> Fragment validé ✅\n> Passage au fragment suivant...";
+      setTimeout(() => {
+        window.location.href = "fragment5.html";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
